@@ -1,12 +1,11 @@
 import {RESTCollection} from 'meteor/dasdeck:restcollection';
 
-FlowRouter.route('/edit/:collection/:id/:type?', {
-    action: function (params) {
+Router.route('/edit/:collection/:id/:type?', function (params) {
         if (params.type === 'oid') {
             params.id = new Mongo.ObjectID(params.id);
         }
         BlazeLayout.render("layout", {content: "editView", params: params});
-    }
+    
 });
 
 Template.editView.helpers({

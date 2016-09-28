@@ -20,7 +20,7 @@ Package.onUse(function (api) {
     api.use('mongo');
     api.use('aldeed:autoform');
     api.use('aldeed:collection2');
-    api.use('kadira:flow-router');
+    api.use('iron:router');
     api.use('dasdeck:restcollection');
 
 
