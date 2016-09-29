@@ -1,10 +1,11 @@
 import {RESTCollection} from 'meteor/dasdeck:restcollection';
 
-Router.route('/edit/:collection/:id/:type?', function (params) {
-        if (params.type === 'oid') {
-            params.id = new Mongo.ObjectID(params.id);
-        }
-        BlazeLayout.render("layout", {content: "editView", params: params});
+
+Router.route('/edit/:collection/:id/:type?', function () {
+    if (this.params.type === 'oid') {
+        this.params.id = new Mongo.ObjectID(params.id);
+    }
+    this.render("editView", {data: {params: this.params}});
 
 });
 
@@ -26,7 +27,7 @@ Template.editView.helpers({
     schema: function () {
         return this.collection.getSchema('edit');
     },
-    class:function(){
+    class: function () {
 
     }
 });
@@ -60,7 +61,7 @@ Template.editView.events({
 
 Template.editView.onCreated(function () {
 
-    var params = this.data.params();
+    var params = this.data.params;
     var collection = window[params.collection];
     this.data.id = params.id;
     this.data.collection = collection;
