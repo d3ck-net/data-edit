@@ -5,8 +5,18 @@ Router.route('/edit/:collection/:id/:type?', function (params) {
             params.id = new Mongo.ObjectID(params.id);
         }
         BlazeLayout.render("layout", {content: "editView", params: params});
-    
+
 });
+
+
+// FlowRouter.route('/edit/:collection/:id/:type?', {
+//     action: function (params) {
+//         if (params.type === 'oid') {
+//             params.id = new Mongo.ObjectID(params.id);
+//         }
+//         BlazeLayout.render("layout", {content: "editView", params: params});
+//     }
+// });
 
 Template.editView.helpers({
     data: function () {
