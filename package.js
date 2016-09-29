@@ -22,6 +22,7 @@ Package.onUse(function (api) {
     api.use('aldeed:collection2');
     api.use('iron:router');
     api.use('dasdeck:restcollection');
+    api.use('kadira:blaze-layout');
 
 
     api.addFiles('client/editView.html', 'client');
