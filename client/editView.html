@@ -1,16 +1,17 @@
 <template name="editView">
 
     <div class="{{class}}">
-
         {{#autoForm collection=collection id=collection._name type="update" doc=data autosaveOnKeyup="true" validation="keyup"}}
-            <fieldset>
-                <legend>Create {{collection._name}}</legend>
-                {{#each schema}}
-                    {{> afQuickField name=id}}
-                {{/each}}
-            </fieldset>
-            <!--<button type="submit" class="btn btn-primary">Insert</button>-->
+            {{#if template}}
+                {{DynamicTemplate template}}
+            {{else}}
+                <fieldset>
+                    <legend>Create {{collection._name}}</legend>
+                    {{#each schema}}
+                        {{> afQuickField name=id}}
+                    {{/each}}
+                </fieldset>
+            {{/if}}
         {{/autoForm}}
-
     </div>
 </template>
